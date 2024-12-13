@@ -1,22 +1,13 @@
 import styled from "styled-components";
 
 export const AuthedWrapper = styled.div`
-  /* .authed-container {
-    height: 100vh;
-  }
-  .side-bar-children {
+  height: 100vh;
+  .authed-container {
     display: flex;
-    height: calc(100% - 93px);
+    height: 100%;
   }
-  .children {
-    background-color: #f6f7f9;
-    font-family: "Nunito Sans", sans-serif;
-    width: 100%;
-    padding: 30px 25px;
+  .authed-header-children {
+    display: flex;
+    flex-direction: column;
   }
-  @media (max-width: 920px) {
-    .side-bar {
-      display: none;
-    }
-  } */
 `;
