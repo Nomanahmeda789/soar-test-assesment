@@ -13,13 +13,13 @@ export const AuthedWrapper = styled.div`
   }
   .children {
     background-color: #f5f7fa;
-    padding: 20px 30px;
+    padding: 30px 40px;
     height: 100vh;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     .children {
-      padding: 20px 20px;
+      padding: 25px;
     }
   }
 `;
