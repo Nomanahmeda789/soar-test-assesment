@@ -9,3 +9,11 @@ body {
 code {
   font-family: "Inter", sans-serif;
 }
+.ant-drawer-header {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  .ant-drawer-body {
+    padding: 0px !important;
+  }
+}

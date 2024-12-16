@@ -9,5 +9,17 @@ export const AuthedWrapper = styled.div`
   .authed-header-children {
     display: flex;
     flex-direction: column;
+    width: 100%;
+  }
+  .children {
+    background-color: #f5f7fa;
+    padding: 20px 30px;
+    height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    .children {
+      padding: 20px 20px;
+    }
   }
 `;
