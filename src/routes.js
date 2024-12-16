@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AuthedLayout from "./components/layouts/authed/Authed";
 import AuthLayout from "./components/layouts/auth/Auth";
 import HomePage from "./pages/home/Home";
+import PageNotFound from "./components/not-found/NotFound";
 
 const LargeDashboardPage = React.lazy(() =>
   import("./pages/dashboard/Dashboard")
@@ -13,6 +14,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
+          {/* Authenticated routes */}
           <Route
             path="/dashboard"
             element={
@@ -21,12 +23,22 @@ const AppRoutes = () => {
               </AuthedRoute>
             }
           />
+          {/* Public routes */}
           <Route
             path="/"
             element={
               <AuthRoute>
                 <HomePage />
               </AuthRoute>
+            }
+          />
+          {/* Catch-all route for undefined paths */}
+          <Route
+            path="*"
+            element={
+              <AuthedRoute>
+                <PageNotFound />
+              </AuthedRoute>
             }
           />
         </Routes>
