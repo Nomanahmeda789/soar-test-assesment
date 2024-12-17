@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { DashboardWrapper } from "./Dashboard.styled";
 import TransactionCardSection from "../../components/dashboard/transaction-card-section/TransactionCardSection";
 import { Col, Row } from "antd";

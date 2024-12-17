@@ -183,7 +183,7 @@ const EditProfile = () => {
               <Col span={24} className="save-btn-col">
                 <CustomButton
                   title={"Save"}
-                  type="submit"
+                  htmlType="submit"
                   buttonWrapperClass="save-btn"
                 />
               </Col>
