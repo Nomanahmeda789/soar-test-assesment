@@ -6,14 +6,11 @@ import { ReactComponent as WhiteChipIcon } from "../../../assets/icon/white-chip
 import { ReactComponent as BlackCircleIcon } from "../../../assets/icon/two-circle.svg";
 import { ReactComponent as WhiteCircleIcon } from "../../../assets/icon/two-circle-icon-white.svg";
 
-const CreditCard = ({ whiteCard }) => {
+const CreditCard = ({ whiteCard, card, id }) => {
   return (
     <CreditCardWrapper>
-      <CustomCard
-        hoverable
-        className={`${whiteCard ? "white-card" : "black-card"}`}
-      >
-        <div className="balance-chip-section">
+      <CustomCard className={`${whiteCard ? "white-card" : "black-card"}`}>
+        <div className="balance-chip-section" key={id}>
           <div className="balance-number">
             <div
               className={`${whiteCard ? "balance-text-white" : "balance-text"}`}
@@ -25,7 +22,7 @@ const CreditCard = ({ whiteCard }) => {
                 whiteCard ? "balance-amount-white" : "balance-amount"
               }`}
             >
-              $5,756
+              {card?.balance}
             </div>
           </div>
           <div>{whiteCard ? <WhiteChipIcon /> : <BlackChipIcon />}</div>
@@ -40,7 +37,7 @@ const CreditCard = ({ whiteCard }) => {
               CARD HOLDER
             </div>
             <div className={`${whiteCard ? "card-name-white" : "card-name"}`}>
-              Eddy Cusuma
+              {card?.holderName}
             </div>
           </div>
           <div>
@@ -52,7 +49,7 @@ const CreditCard = ({ whiteCard }) => {
               VALID THRU
             </div>
             <div className={`${whiteCard ? "card-name-white" : "card-name"} `}>
-              12/22
+              {card?.validThru}
             </div>
           </div>
         </div>
@@ -66,7 +63,7 @@ const CreditCard = ({ whiteCard }) => {
               whiteCard ? "account-number-white" : "account-number"
             }`}
           >
-            3778 **** **** 1234
+            {card?.accountNumber}
           </div>
           {whiteCard ? <WhiteCircleIcon /> : <BlackCircleIcon />}
         </div>

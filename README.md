@@ -122,3 +122,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 For any queries, feel free to contact:
 - **Email**: your-email@example.com
 - **GitHub**: [your-github-profile](https://github.com/your-github-profile)
+
+## For Api Run This Command
+json-server --watch db.json --port 3001

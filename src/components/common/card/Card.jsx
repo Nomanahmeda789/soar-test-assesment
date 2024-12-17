@@ -5,8 +5,6 @@ import { CardWrapper } from "./Card.styled";
 const CustomCard = ({
   title,
   cardIcon,
-  tagColor,
-  statusTitle,
   className,
   bordered,
   hoverable,

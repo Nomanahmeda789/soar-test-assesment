@@ -2,17 +2,22 @@ import { Button } from "antd";
 import React from "react";
 import { ButtonWrapper } from "./Button.styled";
 
-const CustomButton = ({ className, title, width, htmlType, icon, loading }) => {
+const CustomButton = ({
+  className,
+  title,
+  htmlType,
+  icon,
+  loading,
+  buttonWrapperClass,
+}) => {
   return (
-    <ButtonWrapper>
+    <ButtonWrapper className={buttonWrapperClass}>
       <Button
         loading={loading}
-        icon={icon}
         htmlType={htmlType}
         className={` ${className} btn `}
-        style={{ width: width }}
       >
-        {title}
+        {title} {icon}
       </Button>
     </ButtonWrapper>
   );
