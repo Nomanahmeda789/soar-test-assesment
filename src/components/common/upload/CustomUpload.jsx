@@ -30,7 +30,7 @@ const CustomUpload = () => {
     const file = info.file.originFileObj || info.file;
     if (file) {
       const url = await getBase64(file);
-      setImageUrl(url); // Set the base64 URL to the imageUrl state
+      setImageUrl(url);
     }
   };
 
