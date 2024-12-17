@@ -13,8 +13,9 @@ export const AuthedWrapper = styled.div`
   }
   .children {
     background-color: #f5f7fa;
-    padding: 30px 40px;
-    height: 100vh;
+    padding: 20px 30px;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
   }
 
   @media (max-width: 1000px) {
