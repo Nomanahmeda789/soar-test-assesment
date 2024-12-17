@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const InputWrapper = styled.div`
+  .input-label {
+    color: #232323;
+    font-size: 16px;
+    margin-bottom: 11px;
+  }
   .custom-input {
     border: none;
     border-radius: 50px;

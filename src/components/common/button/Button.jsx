@@ -5,26 +5,21 @@ import { ButtonWrapper } from "./Button.styled";
 const CustomButton = ({
   className,
   title,
-  width,
   htmlType,
   icon,
   loading,
-  onClick,
-  value,
+  buttonWrapperClass,
 }) => {
   return (
-    <ButtonWrapper>
-      <Button
-        value={value}
-        onClick={onClick}
+    <ButtonWrapper className={buttonWrapperClass}>
+      <button
         loading={loading}
         icon={icon}
         htmlType={htmlType}
         className={` ${className} btn `}
-        style={{ width: width }}
       >
         {title}
-      </Button>
+      </button>
     </ButtonWrapper>
   );
 };

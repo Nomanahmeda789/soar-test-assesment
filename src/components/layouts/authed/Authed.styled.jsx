@@ -18,9 +18,9 @@ export const AuthedWrapper = styled.div`
     overflow-y: auto;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     .children {
-      padding: 20px 20px;
+      padding: 25px;
     }
   }
 `;

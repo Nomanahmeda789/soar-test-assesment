@@ -4,6 +4,7 @@ import AuthedLayout from "./components/layouts/authed/Authed";
 import AuthLayout from "./components/layouts/auth/Auth";
 import HomePage from "./pages/home/Home";
 import PageNotFound from "./components/not-found/NotFound";
+import SettingsPage from "./pages/settings/Settings";
 
 const LargeDashboardPage = React.lazy(() =>
   import("./pages/dashboard/Dashboard")
@@ -20,6 +21,14 @@ const AppRoutes = () => {
             element={
               <AuthedRoute>
                 <LargeDashboardPage />
+              </AuthedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <AuthedRoute>
+                <SettingsPage />
               </AuthedRoute>
             }
           />
