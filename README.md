@@ -47,11 +47,11 @@ Ensure you have the following installed:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repository/financial-dashboard.git
+   git clone https://github.com/Nomanahmeda789/soar-test-assesment.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd financial-dashboard
+   cd soar-test-assesment
    ```
 3. Install dependencies:
    ```bash
@@ -92,7 +92,7 @@ Ensure you have the following installed:
 ## Project Structure
 
 ```
-financial-dashboard/
+soar-test-assesment/
 ├── public/                # Static assets
 ├── src/                   # Source code
 │   ├── components/        # Reusable components
