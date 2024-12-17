@@ -7,17 +7,21 @@ import CustomInput from "../../common/input/Input";
 import CustomButton from "../../common/button/Button";
 
 const EditProfile = () => {
+  const [dob, setDob] = useState("");
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
+  const [form] = Form.useForm();
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const [dob, setDob] = useState("");
-  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
 
   const handleDateSelect = (date) => {
-    setDob(date.format("DD MMMM YYYY"));
+    const formattedDate = date.format("DD MMMM YYYY");
+    setDob(formattedDate);
+    form.setFieldsValue({ dob: formattedDate });
     setIsCalendarVisible(false);
   };
   return (
@@ -28,6 +32,7 @@ const EditProfile = () => {
         </Col>
         <Col xl={21} lg={24} md={24} sm={24} xs={24}>
           <Form
+            form={form}
             name="basic"
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -37,7 +42,12 @@ const EditProfile = () => {
               <Col span={24}>
                 <Row gutter={[30, 15]}>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="yourName">
+                    <Form.Item
+                      name="yourName"
+                      rules={[
+                        { required: true, message: "Please enter your name" },
+                      ]}
+                    >
                       <CustomInput
                         label={"Your Name"}
                         placeholder="Your Name"
@@ -47,7 +57,15 @@ const EditProfile = () => {
                     </Form.Item>
                   </Col>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="userName">
+                    <Form.Item
+                      name="userName"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your username",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"User Name"}
                         placeholder="User Name"
@@ -61,7 +79,17 @@ const EditProfile = () => {
               <Col span={24}>
                 <Row gutter={[30, 15]}>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="email">
+                    <Form.Item
+                      name="email"
+                      rules={[
+                        { required: true, message: "Please enter your email" },
+                        {
+                          pattern:
+                            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                          message: "Invalid email format",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"Email"}
                         placeholder="Email"
@@ -72,7 +100,21 @@ const EditProfile = () => {
                     </Form.Item>
                   </Col>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="password">
+                    <Form.Item
+                      name="password"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your password",
+                        },
+                        {
+                          pattern:
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,40}$/,
+                          message:
+                            "Password must include upper, lower case, number, and be 8-40 characters",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"Password"}
                         placeholder="Password"
@@ -87,11 +129,20 @@ const EditProfile = () => {
               <Col span={24}>
                 <Row gutter={[30, 15]}>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="dob">
+                    <Form.Item
+                      name="dob"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please select your date of birth",
+                        },
+                      ]}
+                    >
                       <div className="input-label">Date of Birth</div>
                       <div style={{ position: "relative" }}>
                         <Input
                           placeholder="25 January 1990"
+                          name="dob"
                           value={dob}
                           readOnly
                           onClick={() =>
@@ -121,7 +172,15 @@ const EditProfile = () => {
                     </Form.Item>
                   </Col>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="presentAddress">
+                    <Form.Item
+                      name="presentAddress"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your present address",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"Present Address"}
                         placeholder="Present Address"
@@ -135,7 +194,15 @@ const EditProfile = () => {
               <Col span={24}>
                 <Row gutter={[30, 15]}>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="permanentAddress">
+                    <Form.Item
+                      name="permanentAddress"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your permanent address",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"Permanent Address"}
                         placeholder="Permanent Address"
@@ -145,7 +212,12 @@ const EditProfile = () => {
                     </Form.Item>
                   </Col>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="city">
+                    <Form.Item
+                      name="city"
+                      rules={[
+                        { required: true, message: "Please enter your city" },
+                      ]}
+                    >
                       <CustomInput
                         label={"City"}
                         placeholder="City"
@@ -159,7 +231,15 @@ const EditProfile = () => {
               <Col span={24}>
                 <Row gutter={[30, 15]}>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="postalCode">
+                    <Form.Item
+                      name="postalCode"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your postal code",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"Postal Code"}
                         placeholder="Postal Code"
@@ -169,7 +249,15 @@ const EditProfile = () => {
                     </Form.Item>
                   </Col>
                   <Col span={12} lg={12} md={12} sm={24} xs={24}>
-                    <Form.Item name="country">
+                    <Form.Item
+                      name="country"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter your country",
+                        },
+                      ]}
+                    >
                       <CustomInput
                         label={"Country"}
                         placeholder="Country"
@@ -182,9 +270,10 @@ const EditProfile = () => {
               </Col>
               <Col span={24} className="save-btn-col">
                 <CustomButton
+                  className={"save-btn"}
                   title={"Save"}
                   htmlType="submit"
-                  buttonWrapperClass="save-btn"
+                  buttonWrapperClass="save-btn-wrapper"
                 />
               </Col>
             </Row>

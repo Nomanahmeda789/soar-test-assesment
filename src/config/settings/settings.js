@@ -1,10 +1,10 @@
-import EditProfile from "../components/settings/edit-profile/EditProfile";
+import EditProfile from "../../components/settings/edit-profile/EditProfile";
 
-export const tabitems = [
+export const tabItems = [
   {
     key: "editProfile",
     label: "Edit Profile",
-    children: <EditProfile/>,
+    children: <EditProfile />,
   },
   {
     key: "preferences",

@@ -1,97 +1,104 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QuickBalanceCardWrapper } from "./QuickBalanceCardSection.styled";
-import { Col, Row } from "antd";
+import { Col, Form, Row } from "antd";
 import CustomCard from "../../common/card/Card";
 import LineChart from "../../common/linechart/LineChart";
 import CarouselCard from "../../common/carousel-card/CarouselCard";
-import { ReactComponent as C1Icon } from "../../../assets/icon/C1.svg";
-import { ReactComponent as C2Icon } from "../../../assets/icon/C2.svg";
-import { ReactComponent as C3Icon } from "../../../assets/icon/C3.svg";
-import { ReactComponent as C4Icon } from "../../../assets/icon/C4.svg";
-import { ReactComponent as C5Icon } from "../../../assets/icon/C5.svg";
 import InputButton from "../../common/input-button/InputButton";
+import { ReactComponent as SendIcon } from "../../../assets/icon/send-icon.svg";
+import axios from "axios";
+import { lineChartOptions } from "../../../config/chart/lineChart";
 
 const QuickBalanceCardSection = () => {
-  const [amount, setAmount] = useState("525.50");
+  const [lineChartData, setLineChartData] = useState({
+    labels: [],
+    datasets: [],
+  });
+  const [carouselCards, setCarouselCards] = useState([]);
 
-  const handleChange = (e) => {
-    setAmount(e.target.value);
+  useEffect(() => {
+    // Fetch Line Chart Data
+    axios
+      .get("http://localhost:3001/lineChart")
+      .then((response) => setLineChartData(response.data[0]))
+      .catch(() => console.error("Failed to fetch line chart data"));
+
+    // Fetch Carousel Cards Data
+    axios
+      .get("http://localhost:3001/carouselCards")
+      .then((response) => setCarouselCards(response.data))
+      .catch(() => console.error("Failed to fetch carousel cards data"));
+  }, []);
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
   };
 
-  const handleClick = () => {
-    alert(`Amount: ${amount}`);
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
-  const cardData = [
-    {
-      name: "Livia Bator",
-      role: "CEO",
-      image: <C1Icon />,
-    },
-    {
-      name: "Randy Press",
-      role: "Director",
-      image: <C2Icon />,
-    },
-    {
-      name: "Workman",
-      role: "Designer",
-      image: <C3Icon />,
-    },
-    {
-      name: "Workman",
-      role: "Designer",
-      image: <C4Icon />,
-    },
-    {
-      name: "Workman",
-      role: "Designer",
-      image: <C5Icon />,
-    },
-  ];
 
   return (
     <QuickBalanceCardWrapper>
-      <Row gutter={[30, 0]} className="quick-balance-container">
-        <Col xxl={10} xl={24} lg={24} md={24} sm={24} xs={24}>
-          <Row>
-            <Col span={24} className="Card-title">
-              Quick Transfer
-            </Col>
-            <Col span={24}>
-              <CustomCard hoverable className="quick-balance-card">
-                <Row gutter={[0, 30]}>
-                  <Col span={24}>
-                    <CarouselCard cards={cardData} />
-                  </Col>
-                  <Col span={24} className="input-button-col">
-                    <InputButton
-                      placeholder="Enter amount"
-                      buttonText="Send"
-                      value={amount}
-                      onChange={handleChange}
-                      onClick={handleClick}
+      <Form
+        name="basic"
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Row gutter={[30, 20]} className="quick-balance-container">
+          <Col xxl={10} xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Row>
+              <Col span={24} className="Card-title">
+                Quick Transfer
+              </Col>
+              <Col span={24}>
+                <CustomCard className="quick-transfer-card">
+                  <Row gutter={[0, 25]}>
+                    <Col span={24}>
+                      <CarouselCard cards={carouselCards} />
+                    </Col>
+                    <Col span={24} className="input-button-col">
+                      <Form.Item
+                        name="amount"
+                        valuePropName="value"
+                        getValueFromEvent={(e) => e.target.value}
+                      >
+                        <InputButton
+                          type={"number"}
+                          name={"amount"}
+                          label="Write Amount"
+                          placeholder="Enter amount"
+                          buttonText="Send"
+                          icon={<SendIcon className="send_icon" />}
+                          htmlType="submit"
+                        />
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                </CustomCard>
+              </Col>
+            </Row>
+          </Col>
+          <Col xxl={14} xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Row>
+              <Col span={24} className="Card-title-balance">
+                Balance History
+              </Col>
+              <Col span={24}>
+                <CustomCard className="quick-balance-card">
+                  <Row>
+                    <LineChart
+                      data={lineChartData}
+                      options={lineChartOptions}
                     />
-                  </Col>
-                </Row>
-              </CustomCard>
-            </Col>
-          </Row>
-        </Col>
-        <Col xxl={14} xl={24} lg={24} md={24} sm={24} xs={24}>
-          <Row>
-            <Col span={24} className="Card-title">
-              Balance History
-            </Col>
-            <Col span={24}>
-              <CustomCard hoverable className="quick-balance-card">
-                <Row>
-                  <LineChart />
-                </Row>
-              </CustomCard>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+                  </Row>
+                </CustomCard>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Form>
     </QuickBalanceCardWrapper>
   );
 };

@@ -1,26 +1,39 @@
 import React from "react";
-import { InputLabel, InputField, SendButton, Icon } from "./InputButton.styled";
 import { InputButtonWrapper } from "./InputButton.styled";
-import { ReactComponent as SendIcon } from "../../../assets/icon/send-icon.svg";
+import CustomButton from "../button/Button";
+import CustomInput from "../input/Input";
 
-const InputButton = ({ placeholder, buttonText, value, onChange, onClick }) => {
+const InputButton = ({
+  label,
+  placeholder,
+  buttonText,
+  icon,
+  htmlType,
+  loading,
+  name,
+  type,
+  value,
+  onChange,
+}) => {
   return (
     <InputButtonWrapper>
-      <label className="input-label">Write Amount</label>
-      <div className="input">
-        <input
-          type="text"
-          className="input-field"
+      <div className="label">{label}</div>
+      <div className="input-button-section">
+        <CustomInput
+          type={type}
+          className={"input-field"}
           placeholder={placeholder}
+          name={name}
           value={value}
           onChange={onChange}
         />
-        <button className="send-button" onClick={onClick}>
-          {buttonText}
-          <span className="icon">
-            <SendIcon height={20} width={20} />
-          </span>
-        </button>
+        <CustomButton
+          loading={loading}
+          className="send-button"
+          title={buttonText}
+          icon={icon}
+          htmlType={htmlType}
+        />
       </div>
     </InputButtonWrapper>
   );

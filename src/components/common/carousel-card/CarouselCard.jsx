@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { CarouselCardWrapper } from "./CarouselCard.styled";
 import { ReactComponent as RightArrowIcon } from "../../../assets/icon/right-arrow.svg";
+import { ReactComponent as C5Icon } from "../../../assets/icon/C5.svg";
 
 const CarouselCard = ({ cards }) => {
   const carouselRef = useRef(null);
@@ -33,11 +34,7 @@ const CarouselCard = ({ cards }) => {
           {clonedCards.map((card, index) => (
             <div className="card" key={index}>
               <div className="card-image">
-                {typeof card.image === "string" ? (
-                  <img src={card.image} alt={card.name} />
-                ) : (
-                  card.image
-                )}
+                {typeof card.image === "string" ? <C5Icon /> : card.image}
               </div>
               <h3
                 className={`card-title ${

@@ -1,12 +1,12 @@
-import { ReactComponent as DashboardIcon } from "../assets/icon/dashboard-icon.svg";
-import { ReactComponent as TransactionIcon } from "../assets/icon/transaction.svg";
-import { ReactComponent as AccountsIcon } from "../assets/icon/accounts.svg";
-import { ReactComponent as InvestmentIcon } from "../assets/icon/investment.svg";
-import { ReactComponent as CreditsIcon } from "../assets/icon/credits-card.svg";
-import { ReactComponent as LoanIcon } from "../assets/icon/loan.svg";
-import { ReactComponent as ServiceIcon } from "../assets/icon/service.svg";
-import { ReactComponent as PrivilegesIcon } from "../assets/icon/privileges.svg";
-import { ReactComponent as SettingIcon } from "../assets/icon/setting.svg";
+import { ReactComponent as DashboardIcon } from "../../assets/icon/dashboard-icon.svg";
+import { ReactComponent as TransactionIcon } from "../../assets/icon/transaction.svg";
+import { ReactComponent as AccountsIcon } from "../../assets/icon/accounts.svg";
+import { ReactComponent as InvestmentIcon } from "../../assets/icon/investment.svg";
+import { ReactComponent as CreditsIcon } from "../../assets/icon/credits-card.svg";
+import { ReactComponent as LoanIcon } from "../../assets/icon/loan.svg";
+import { ReactComponent as ServiceIcon } from "../../assets/icon/service.svg";
+import { ReactComponent as PrivilegesIcon } from "../../assets/icon/privileges.svg";
+import { ReactComponent as SettingIcon } from "../../assets/icon/setting.svg";
 
 export const menuItems = [
   {

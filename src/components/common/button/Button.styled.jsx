@@ -7,7 +7,6 @@ export const ButtonWrapper = styled.div`
     color: #fff;
     background-color: #232323;
     height: 50px;
-    width: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,14 +17,14 @@ export const ButtonWrapper = styled.div`
     cursor: pointer;
   }
   .ant-btn-variant-outlined:not(:disabled):not(.ant-btn-disabled):hover {
-    color: #fff;
-    background-color: #232323;
-    border: none !important;
-    height: 50px;
+    color: #232323;
+    background-color: #fff;
+    border: 1px solid #232323;
+    path {
+      fill: #232323 !important;
+    }
   }
-  .btn img {
-    margin-right: 7px;
-    width: 16px;
-    height: 16px;
+  .btn svg {
+    margin-left: 5px;
   }
 `;

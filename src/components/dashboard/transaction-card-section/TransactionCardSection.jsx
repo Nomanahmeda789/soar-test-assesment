@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { TransactionCardWrapper } from "./TransactionCardSection.styled";
-import { Col, Row } from "antd";
+import { Carousel, Col, Row } from "antd";
 import CreditCard from "../../common/credit-card/CreditCard";
 import CustomCard from "../../common/card/Card";
 import PaymentCard from "../../common/payment-card/PaymentCard";
+import axios from "axios";
 import { ReactComponent as DepositIcon } from "../../../assets/icon/deposit-icon.svg";
-import { ReactComponent as PaypalIcon } from "../../../assets/icon/paypal-icon.svg";
-import { ReactComponent as DollarIcon } from "../../../assets/icon/dollar-icon.svg";
 
 const TransactionCardSection = () => {
+  const [cards, setCards] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/cards")
+      .then((response) => setCards(response.data))
+      .catch((error) => console.error("Error fetching cards:", error));
+
+    axios
+      .get("http://localhost:3001/transactions")
+      .then((response) => setTransactions(response.data))
+      .catch((error) => console.error("Error fetching transactions:", error));
+  }, []);
+
   return (
     <TransactionCardWrapper>
       <Row gutter={[30, 20]}>
@@ -18,15 +32,36 @@ const TransactionCardSection = () => {
               <div className="my-card-text">My Cards</div>
               <div className="see-all-text">See All</div>
             </Col>
-            <Col span={24}>
+            <Col span={24} className={"desktop-carosule"}>
               <Row gutter={[30, 20]}>
-                <Col xl={12} lg={12} md={12} sm={24} xs={24}>
-                  <CreditCard />
-                </Col>
-                <Col xl={12} lg={12} md={12} sm={24} xs={24}>
-                  <CreditCard whiteCard />
-                </Col>
+                {cards.map((card) => (
+                  <Col xl={12} lg={12} md={12} sm={24} xs={24} key={card.id}>
+                    <CreditCard whiteCard={card.type === "white"} card={card} />
+                  </Col>
+                ))}
               </Row>
+            </Col>
+            <Col span={24} className="mobile-carosule">
+              <div className="credit-card-carousel-container">
+                <Carousel
+                  dots={false}
+                  draggable={true}
+                  infinite={true}
+                  swipeToSlide={true}
+                  speed={300}
+                  easing="ease-out"
+                  vertical={false}
+                  autoplay={false}
+                  className="carosule-section"
+                >
+                  <div className="carousel-slide">
+                    <CreditCard />
+                  </div>
+                  <div className="carousel-slide">
+                    <CreditCard whiteCard />
+                  </div>
+                </Carousel>
+              </div>
             </Col>
           </Row>
         </Col>
@@ -36,37 +71,20 @@ const TransactionCardSection = () => {
               Recent Transaction
             </Col>
             <Col span={24}>
-              <CustomCard hoverable className="deposite-card">
+              <CustomCard className="deposite-card">
                 <Row>
                   <Col span={24}>
-                    <PaymentCard
-                      icon={DepositIcon}
-                      title="Deposit from my Card"
-                      date="28 January 2021"
-                      amount="-$850"
-                      amountColor="red"
-                      backgroundColor="#FFF5D9"
-                    />
-                  </Col>
-                  <Col span={24}>
-                    <PaymentCard
-                      icon={PaypalIcon}
-                      title="Deposit Paypal"
-                      date="25 January 2021"
-                      amount="+$2,500"
-                      amountColor="green"
-                      backgroundColor="#E7EDFF"
-                    />
-                  </Col>
-                  <Col span={24}>
-                    <PaymentCard
-                      icon={DollarIcon}
-                      title="Jemi Wilson"
-                      date="21 January 2021"
-                      amount="+$5,400"
-                      amountColor="green"
-                      backgroundColor="#DCFAF8"
-                    />
+                    {transactions.map((card, index) => (
+                      <PaymentCard
+                        key={index}
+                        icon={<DepositIcon />}
+                        title={card.title}
+                        date={card.date}
+                        amount={card.amount}
+                        amountColor={card.amountColor}
+                        backgroundColor={card.backgroundColor}
+                      />
+                    ))}
                   </Col>
                 </Row>
               </CustomCard>

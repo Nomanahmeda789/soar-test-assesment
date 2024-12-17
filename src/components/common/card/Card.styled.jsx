@@ -31,7 +31,7 @@ export const CardWrapper = styled.div`
   }
   .ant-card {
     width: 100% !important;
-    border: 1px solid #dfeaf2;
+    border: none;
     border-radius: 25px;
   }
   .ant-card-head {

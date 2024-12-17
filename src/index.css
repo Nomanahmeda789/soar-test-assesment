@@ -1,14 +1,12 @@
+* {
+  font-family: "Inter", sans-serif !important;
+}
 body {
   margin: 0px;
   padding: 0px;
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", sans-serif !important;
 }
 
-code {
-  font-family: "Inter", sans-serif;
-}
 .ant-drawer-header {
   display: none !important;
 }
@@ -16,4 +14,21 @@ code {
   .ant-drawer-body {
     padding: 0px !important;
   }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dfeaf2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dfeaf2;
 }
