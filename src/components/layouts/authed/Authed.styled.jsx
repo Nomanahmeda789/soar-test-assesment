@@ -14,7 +14,8 @@ export const AuthedWrapper = styled.div`
   .children {
     background-color: #f5f7fa;
     padding: 20px 30px;
-    height: 100vh;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
   }
 
   @media (max-width: 768px) {

@@ -5,7 +5,7 @@ export const TransactionCardWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
   .my-card-text {
     color: #343c6a;
@@ -22,6 +22,9 @@ export const TransactionCardWrapper = styled.div`
     color: #343c6a;
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+  }
+  .deposite-card {
+    padding: 25px;
   }
 `;
