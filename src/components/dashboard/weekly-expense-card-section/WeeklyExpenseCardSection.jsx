@@ -37,7 +37,6 @@ const WeeklyExpenseCardSection = () => {
         });
       });
 
-    // Fetch Pie Chart Data
     axios
       .get("http://localhost:3001/pieChartData")
       .then((response) => setPieChartData(response.data))

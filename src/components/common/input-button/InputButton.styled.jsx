@@ -62,12 +62,6 @@ export const InputButtonWrapper = styled.div`
       .label {
         font-size: 12px;
       }
-      /* flex-direction: column; 
-    align-items: flex-start;
-    gap: 10px;
-    .input-button-section {
-      width: 100%;
-    } */
     }
   }
 `;

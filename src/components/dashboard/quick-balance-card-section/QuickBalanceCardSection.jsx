@@ -17,13 +17,11 @@ const QuickBalanceCardSection = () => {
   const [carouselCards, setCarouselCards] = useState([]);
 
   useEffect(() => {
-    // Fetch Line Chart Data
     axios
       .get("http://localhost:3001/lineChart")
       .then((response) => setLineChartData(response.data[0]))
       .catch(() => console.error("Failed to fetch line chart data"));
 
-    // Fetch Carousel Cards Data
     axios
       .get("http://localhost:3001/carouselCards")
       .then((response) => setCarouselCards(response.data))
