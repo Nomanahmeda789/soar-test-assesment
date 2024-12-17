@@ -14,11 +14,10 @@ const CustomButton = ({
     <ButtonWrapper className={buttonWrapperClass}>
       <Button
         loading={loading}
-        icon={icon}
         htmlType={htmlType}
         className={` ${className} btn `}
       >
-        {title}
+        {title} {icon}
       </Button>
     </ButtonWrapper>
   );

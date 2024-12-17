@@ -12,6 +12,9 @@ export const EditProfileWrapper = styled.div`
     display: flex;
     justify-content: end;
   }
+  .save-btn {
+    width: 190px;
+  }
   .ant-form-item {
     margin-bottom: 0px;
   }
@@ -73,13 +76,11 @@ export const EditProfileWrapper = styled.div`
   }
 
   @media (max-width: 600px) {
-    .save-btn {
-    width: 100% !important;
-    .btn{
+    .save-btn-wrapper {
+      width: 100% !important;
+      .btn {
         width: 100%;
+      }
     }
   }
-  }
-
-  
 `;

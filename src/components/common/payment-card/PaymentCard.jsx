@@ -7,21 +7,13 @@ const PaymentCard = ({
   date,
   amount,
   amountColor = "black",
-  backgroundColor = "#f2f2f7",
 }) => {
   return (
     <PaymentCardWrapper>
       <div>
         <div className="card-content">
           <div className="left">
-            {Icon && (
-              <div
-                className="icon-section"
-                style={{ background: backgroundColor }}
-              >
-                <Icon />
-              </div>
-            )}
+            {Icon && <div className="icon-section">{Icon}</div>}
             <div className="card-text">
               <p className="card-title">{title}</p>
               <p className="card-date">{date}</p>

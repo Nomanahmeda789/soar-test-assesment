@@ -15,6 +15,7 @@ export const PaymentCardWrapper = styled.div`
     border-radius: 50%;
     width: 55px;
     height: 55px;
+    background-color: #f2f2f7;
   }
 
   .left {

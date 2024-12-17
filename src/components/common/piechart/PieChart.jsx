@@ -1,36 +1,11 @@
 import React from "react";
+import { PieChartWrapper } from "./PieChart.styled";
 
-const PieChart = () => {
-  const slices = [
-    { id: 2, label: "Others", percentage: 30, color: "#232323", radius: 45 },
-
-    {
-      id: 3,
-      label: "Investment",
-      percentage: 25,
-      color: "#396AFF",
-      radius: 40,
-    },
-    {
-      id: 4,
-      label: "Entertainment",
-      percentage: 30,
-      color: "#343C6A",
-      radius: 40,
-    },
-    {
-      id: 1,
-      label: "Bill Expense",
-      percentage: 15,
-      color: "#FC7900",
-      radius: 50,
-    },
-  ];
-
+const PieChart = ({ data }) => {
   const renderSlices = () => {
     let cumulativeAngle = 0;
 
-    return slices.map((slice) => {
+    return data.map((slice) => {
       const startAngle = cumulativeAngle;
       const sliceAngle = (slice.percentage / 100) * 360;
       cumulativeAngle += sliceAngle;
@@ -61,7 +36,7 @@ const PieChart = () => {
   const renderLabels = () => {
     let cumulativeAngle = 0;
 
-    return slices.map((slice) => {
+    return data.map((slice) => {
       const sliceAngle = (slice.percentage / 100) * 360;
       const angle = cumulativeAngle + sliceAngle / 2;
       cumulativeAngle += sliceAngle;
@@ -84,11 +59,12 @@ const PieChart = () => {
 
           <text
             x={x}
-            y={y + 2}
+            y={y + 5}
             textAnchor="middle"
             dominantBaseline="middle"
             fill="#FFFFFF"
-            fontSize="3.5"
+            fontSize="4.5"
+            fontWeight="bold"
           >
             {slice.label}
           </text>
@@ -98,18 +74,12 @@ const PieChart = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <PieChartWrapper>
       <svg width="310" height="300" viewBox="5 15 100 75">
         {renderSlices()}
         {renderLabels()}
       </svg>
-    </div>
+    </PieChartWrapper>
   );
 };
 

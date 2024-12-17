@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ReactComponent as SoarIcon } from "../../../../assets/icon/soar-icon.svg";
 import { SideBarWrapper } from "./AuthedSideBar.styled";
-import { menuItems } from "../../../../config/menuItems";
 import CustomDrawer from "../../../common/drawer/Drawer";
 import { useNavigate } from "react-router-dom";
+import { menuItems } from "../../../../config/dashboard/menuItems";
 
 const AuthedSideBar = ({ openDrawer, onCloseDrawer }) => {
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ const AuthedSideBar = ({ openDrawer, onCloseDrawer }) => {
                   onClick={() => {
                     setSelected(item.id);
                     onCloseDrawer();
-                    handleMenuClick();
+                    handleMenuClick(item?.path);
                   }}
                 >
                   <div className="menu-border"></div> {item?.icon}

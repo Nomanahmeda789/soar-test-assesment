@@ -1,0 +1,137 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "type": "black",
+      "balance": "$5,756",
+      "holderName": "Eddy Cusuma",
+      "validThru": "12/22",
+      "accountNumber": "3778 **** **** 1234"
+    },
+    {
+      "id": 2,
+      "type": "white",
+      "balance": "$3,200",
+      "holderName": "Sarah Johnson",
+      "validThru": "11/24",
+      "accountNumber": "4821 **** **** 5678"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "title": "Deposit from my Card",
+      "date": "28 January 2021",
+      "amount": "-$850",
+      "amountColor": "red",
+      "backgroundColor": "#FFF5D9"
+    },
+    {
+      "id": 2,
+      "title": "Deposit Paypal",
+      "date": "25 January 2021",
+      "amount": "+$2,500",
+      "amountColor": "green",
+      "backgroundColor": "#E7EDFF"
+    },
+    {
+      "id": 3,
+      "title": "Jemi Wilson",
+      "date": "21 January 2021",
+      "amount": "+$5,400",
+      "amountColor": "green",
+      "backgroundColor": "#DCFAF8"
+    }
+  ],
+  "barChart": [
+    {
+      "labels": ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+      "datasets": [
+        {
+          "label": "Deposit",
+          "data": [450, 350, 320, 450, 130, 380, 400],
+          "backgroundColor": "#232323",
+          "borderRadius": 20,
+          "borderSkipped": false,
+          "barThickness": "flex",
+          "categoryPercentage": 0.5,
+          "barPercentage": 0.5
+        },
+        {
+          "label": "Withdraw",
+          "data": [230, 130, 275, 385, 220, 220, 330],
+          "backgroundColor": "#396AFF",
+          "borderRadius": 20,
+          "borderSkipped": false,
+          "barThickness": "flex",
+          "categoryPercentage": 0.5,
+          "barPercentage": 0.5
+        }
+      ]
+    }
+  ],
+  "pieChartData": [
+    {
+      "id": 2,
+      "label": "Others",
+      "percentage": 30,
+      "color": "#232323",
+      "radius": 45
+    },
+    {
+      "id": 3,
+      "label": "Investment",
+      "percentage": 25,
+      "color": "#396AFF",
+      "radius": 40
+    },
+    {
+      "id": 4,
+      "label": "Entertainment",
+      "percentage": 30,
+      "color": "#343C6A",
+      "radius": 40
+    },
+    {
+      "id": 1,
+      "label": "Bill Expense",
+      "percentage": 15,
+      "color": "#FC7900",
+      "radius": 50
+    }
+  ],
+  "carouselCards": [
+    {
+      "name": "John Doe",
+      "role": "CEO",
+      "image": "assets/icon/C1.svg"
+    },
+    {
+      "name": "Jane Smith",
+      "role": "Manager",
+      "image": "assets/icon/C1.svg"
+    },
+    {
+      "name": "Emily Davis",
+      "role": "Developer",
+      "image": "assets/icon/C1.svg"
+    }
+  ],
+  "lineChart": [
+    {
+      "labels": ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "datasets": [
+        {
+          "label": "Data",
+          "data": [10, 250, 450, 800, 200, 580, 620],
+          "fill": true,
+          "backgroundColor": "rgba(55, 125, 255, 0.1)",
+          "borderColor": "rgba(24, 20, 243, 1)",
+          "borderWidth": 2,
+          "tension": 0.4,
+          "pointRadius": 0
+        }
+      ]
+    }
+  ]
+}

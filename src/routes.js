@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AuthedLayout from "./components/layouts/authed/Authed";
 import AuthLayout from "./components/layouts/auth/Auth";
-import HomePage from "./pages/home/Home";
 import PageNotFound from "./components/not-found/NotFound";
 import SettingsPage from "./pages/settings/Settings";
 
@@ -33,14 +32,7 @@ const AppRoutes = () => {
             }
           />
           {/* Public routes */}
-          <Route
-            path="/"
-            element={
-              <AuthRoute>
-                <HomePage />
-              </AuthRoute>
-            }
-          />
+
           {/* Catch-all route for undefined paths */}
           <Route
             path="*"
