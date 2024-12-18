@@ -125,5 +125,7 @@ For any queries, feel free to contact:
 
 ## For Api Run This Command
 
-Open a new cmd and run this below command to run the api server that will run in live url as well as localhost
-json-server --watch db.json --port 3001
+1. Open a new cmd and run this below command to run the api server that will run in live url as well as localhost
+   ```bash
+   json-server --watch db.json --port 3001
+   ```
