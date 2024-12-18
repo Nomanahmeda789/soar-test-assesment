@@ -12,13 +12,17 @@ const TransactionCardSection = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
+    const apiUrl =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://soar-test-assesment.vercel.app/api";
     axios
-      .get("http://localhost:3001/cards")
+      .get(`${apiUrl}/cards`)
       .then((response) => setCards(response.data))
       .catch((error) => console.error("Error fetching cards:", error));
 
     axios
-      .get("http://localhost:3001/transactions")
+      .get(`${apiUrl}/transactions`)
       .then((response) => setTransactions(response.data))
       .catch((error) => console.error("Error fetching transactions:", error));
   }, []);
