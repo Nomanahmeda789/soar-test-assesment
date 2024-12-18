@@ -15,7 +15,7 @@ const TransactionCardSection = () => {
     const apiUrl =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://soar-test-assesment.vercel.app/api";
+        : "https://soar-test-assesment.vercel.app";
     axios
       .get(`${apiUrl}/cards`)
       .then((response) => setCards(response.data))
